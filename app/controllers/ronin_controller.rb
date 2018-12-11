@@ -1,0 +1,2 @@
+class RoninController < ApplicationController
+end
