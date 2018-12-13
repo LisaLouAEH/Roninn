@@ -1,14 +1,14 @@
 class CreateMissions < ActiveRecord::Migration[5.2]
   def change
     create_table :missions do |t|
-      t.belongs_to :client, index: true
-      t.string :image
-      t.string :title 
-      t.text :description 
-      t.text :technos
-      t.string :status
+      t.string :title
+      t.text :description
       t.datetime :deadline
-      t.belongs_to :ronin, index: true
+      t.string :image
+      t.string :techno
+      t.string :status
+      t.references :client, foreign_key: true
+
       t.timestamps
     end
   end

@@ -14,5 +14,9 @@
  *= require_self
  */
 .logo{
-    font-size: 24px;
+    font-size: 18px;
+    background-color: red !important;
+}
+.ui.large.top.fixed.menu{
+    background-color: black !important;
 }

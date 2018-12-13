@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_163322) do
+ActiveRecord::Schema.define(version: 2018_12_13_084432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,18 +27,16 @@ ActiveRecord::Schema.define(version: 2018_12_11_163322) do
   end
 
   create_table "missions", force: :cascade do |t|
-    t.bigint "client_id"
-    t.string "image"
     t.string "title"
     t.text "description"
-    t.text "technos"
-    t.string "status"
     t.datetime "deadline"
-    t.bigint "ronin_id"
+    t.string "image"
+    t.string "techno"
+    t.string "status"
+    t.bigint "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_missions_on_client_id"
-    t.index ["ronin_id"], name: "index_missions_on_ronin_id"
   end
 
   create_table "ronins", force: :cascade do |t|
@@ -69,5 +67,6 @@ ActiveRecord::Schema.define(version: 2018_12_11_163322) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "missions", "clients"
   add_foreign_key "ronins", "users"
 end

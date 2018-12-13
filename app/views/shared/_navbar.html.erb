@@ -1,37 +1,26 @@
-<div class="ui inverted segment">
-  <div class="ui inverted secondary pointing menu">
-    <a class="item logo" href="/">RoninN</a>
-<% if user_signed_in? %>
-    <a class="item">Inn</a>
-    <a class="item">
-        <div class="ui hidden divider"></div>
-        <div class="ui floating dropdown button">
-            <div class="text">Go to</div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-                <a class="item" href="#link1"><i class="home icon"></i> Home</a>
-                <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
-                <a class="item" href="#link3"><i class="search icon"></i> Search</a>
+<div class="navbar">
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
+            <div class="ui inverted secondary pointing menu">
+                <a class="item logo" href="/">RoninN</a>
             </div>
-        </div>
-    </a>
-    <a class="item">Log Out</a>
-<%else%>
-    <a class="item">Log In</a>
-    <a class="item">Sign Up</a>
-    <a class="item">
-        <div class="ui hidden divider"></div>
-            <div class="ui floating dropdown button">
-                <div class="text">Go to</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <a class="item" href="#link1"><i class="home icon"></i> Home</a>
-                    <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
-                    <a class="item" href="#link3"><i class="search icon"></i> Search</a>
+    <!---->
+    <% if user_signed_in? %>
+            <div class="item"><%= link_to 'Inn', inn_path %></div>
+            <div class="item"><%= link_to 'my profil', dash_path %></div>
+            <div class="item"><%= link_to 'Log Out', destroy_user_session_path %></div>
+    <%else%>
+    <!---->
+            <div class="right menu">
+                <div class="item ui button">
+                    <%= link_to 'Log In', new_user_session_path %>
+                </div>
+                <div class="item ui primary button">
+                    <%= link_to 'Sign Up', new_user_registration_path %>
                 </div>
             </div>
         </div>
-    </a>
-<%end%>
-  </div>
+    <%end%>
+    <!---->
+    </div>
 </div>
